@@ -1,12 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser')
+
 let app = express();
-app.use(express.json());
+
+app.use(bodyParser.json());
 
 app.post("/generate-nemID", (req, res) => {
-    let cpr = req.body.cpr;
-    let email = req.body.email;
-    let randomNumber = Math.floor(10000 + Math.random() * 90000);
-    let nemId = randomNumber + cpr.slice(-4);
+    console.log("Body: " + req.body);
+    const cpr = req.body.cpr._;
+    console.log(cpr);
+    const randomNumber = Math.floor(10000 + Math.random() * 90000);
+    const last4cprnumbers = cpr.slice(-4);
+    const nemId = randomNumber + last4cprnumbers;
+    console.log(nemId);
 
     res.json({
         status: 201,

@@ -1,11 +1,18 @@
 const express = require('express');
-let app = express();
-app.use(express.json());
+const bodyParser = require('body-parser')
+
+let app = express()
+
+app.use(bodyParser.json())
 
 app.post("/generate-password-nemID", (req, res) => {
     let nemID = req.body.nemId;
-    let cpr = req.body.cpr;
+    console.log(nemID);
+    let cpr = req.body.cpr._;
+    console.log(cpr);
     let password = nemID.slice(0, 2) + cpr.slice(-2);
+    console.log(password);
+
 
     res.json({
         status: 200,
