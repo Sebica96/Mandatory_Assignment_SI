@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<person>
+	<FirstName FirstName="FirstName"/>
+	<LastName LastName="LastName"/>
+	<CPRNumber CPRNumber="302219486958"/>
+	<Email Email="Email"/>
+</person>
